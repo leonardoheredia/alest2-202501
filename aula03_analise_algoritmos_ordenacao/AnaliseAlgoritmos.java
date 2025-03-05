@@ -8,9 +8,13 @@ public class AnaliseAlgoritmos {
             int[] a = new int[n];
             ArrayUtils.preencherArrayComValoresInteirosAleatorios(a, 100_000, false);
 
+            int[] aBubble = new int[n];
+            ArrayUtils.clonarArray(a, aBubble);
+
             BubbleSort bs = new BubbleSort();
-            bs.ordenar(a);
+            bs.ordenar(aBubble);
             System.out.println(n + "," + bs.getOperacoes());
+
 
 
         }
