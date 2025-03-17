@@ -1,42 +1,55 @@
 package aula06_heap;
 
 public class HeapMax {
+
     private int[] chaves;
-    private int capacidade = 10;
+    private int capacidade = 50;
     private int tamanho;
 
     public HeapMax() {
         tamanho = 0;
         chaves = new int[capacidade];
     }
+
     public void inserir(int chave) {
         chaves[tamanho] = chave;
+        //chamar o swim/subir/heapfy-up
         swim(tamanho);
         tamanho++;
-
     }
-    private void swim(int posicao) {
+    public void swim(int posicao) {
         if(posicao==0) return;
-        if(chaves[posicao] > chaves[(posicao-1)/2]) {
-            int temp = chaves[(posicao-1)/2];
-            chaves[(posicao-1)/2] = chaves[posicao];
-            chaves[posicao] = temp;
-            swim((posicao-1)/2);
+        int posicao_pai = (posicao - 1) / 2;
+        if(chaves[posicao] > chaves[posicao_pai]) {
+            trocar(posicao, posicao_pai);
         }
+        swim(posicao_pai);
     }
-    private void heapify(int posicao) {
-        //implementar
+    private void trocar(int posicaoA, int posicaoB) {
+        int temp = chaves[posicaoA];
+        chaves[posicaoA] = chaves[posicaoB];
+        chaves[posicaoB] = temp;
     }
-    public void removerMaximo() {
-        if(tamanho==0) return;
-        //trocar primeiro pelo ultimo
-        int temp = chaves[0];
-        chaves[0] = chaves[tamanho-1];
-        chaves[tamanho-1] = temp;
 
+    public int removerMaximo() {
+        trocar(0, tamanho-1);
+        heapfy(0);
         tamanho--;
-        heapify(0);
+        return -1;
     }
+
+    private void heapfy(int posicao) {
+        int posMaior = posicao;
+        int posEsquerda = posicao*2 + 1;
+        int posDireita = posicao*2 + 2;
+
+        if(chaves[posEsquerda] > chaves[posMaior]) posMaior = posEsquerda;
+        if(chaves[posDireita] > chaves[posMaior]) posMaior = posDireita;
+
+        trocar(posicao, posMaior);
+
+    }
+
 
     @Override
     public String toString() {
