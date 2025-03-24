@@ -12,8 +12,13 @@ public class HeapSort {
     public long getTempoExecucao() {
         return 0;
     }
-    public void ordenar(int[] arrayInteiros) {
+    public void ordenar(int[] a) {
         //ordenar
+        int pUltimo = a.length-1;
+        int pPaiUltimo = (pUltimo-1)/2;
+        afundar(a, pPaiUltimo);
+        ArrayUtils.imprimir(a);
+
     }
 
     private void gerarHeap(int[] a) {
@@ -41,10 +46,10 @@ public class HeapSort {
     }
 
     public static void main(String[] args) {
-        int[] a = {10,20,30,40, 13, 24, 99, 17};
+        int[] a = {33,40,23,67,18,31,59};
         ArrayUtils.imprimir(a);
         HeapSort hs = new HeapSort();
-        hs.gerarHeap(a);
+        hs.ordenar(a);
 
     }
 }
