@@ -1,5 +1,7 @@
 package aula06_heap;
 
+import utils.ArrayUtils;
+
 public class App {
     public static void main(String[] args) {
         HeapMax heap = new HeapMax();

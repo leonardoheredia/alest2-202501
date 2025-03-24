@@ -1,5 +1,7 @@
 package aula06_heap;
 
+import utils.ArrayUtils;
+
 public class HeapMax {
 
     private int[] chaves;
@@ -33,20 +35,26 @@ public class HeapMax {
 
     public int removerMaximo() {
         trocar(0, tamanho-1);
+        chaves[tamanho-1] = 0;
         heapfy(0);
         tamanho--;
         return -1;
     }
 
     private void heapfy(int posicao) {
+        //ArrayUtils.imprimir(chaves);
         int posMaior = posicao;
         int posEsquerda = posicao*2 + 1;
         int posDireita = posicao*2 + 2;
 
-        if(chaves[posEsquerda] > chaves[posMaior]) posMaior = posEsquerda;
-        if(chaves[posDireita] > chaves[posMaior]) posMaior = posDireita;
-
+        if(posEsquerda<tamanho-1 && chaves[posEsquerda] > chaves[posMaior]) posMaior = posEsquerda;
+        if(posDireita<tamanho-1 && chaves[posDireita] > chaves[posMaior]) posMaior = posDireita;
+//        System.out.println(this);
         trocar(posicao, posMaior);
+        if(posicao!=posMaior) {
+            heapfy(posMaior);
+        }
+
 
     }
 
