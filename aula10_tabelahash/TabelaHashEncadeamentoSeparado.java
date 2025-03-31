@@ -55,6 +55,31 @@ public class TabelaHashEncadeamentoSeparado {
     public void remover(int chave) {
         //IMPLEMENTAR
     }
+
+    public void atualizar(int chave, String valor) {
+        Nodo n = obterNodo(chave);
+        if(n==null) return;
+
+        n.setValor(valor);
+    }
+
+    private Nodo obterNodo(int chave) {
+        int h = funcaoHash(chave);
+        if(tabela[h]==null) return null;
+
+        Nodo n = tabela[h];
+        while (n!=null) {
+            if(chave==n.getChave()) return n;
+            n = n.getProximo();
+        }
+        return null;
+    }
+
+
+
+
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -69,3 +94,7 @@ public class TabelaHashEncadeamentoSeparado {
         return sb.toString();
     }
 }
+
+
+
+
