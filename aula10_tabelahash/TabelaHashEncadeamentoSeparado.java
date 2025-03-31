@@ -41,7 +41,16 @@ public class TabelaHashEncadeamentoSeparado {
     }
 
     public String buscar(int chave) {
+        int h = funcaoHash(chave);
+        if(tabela[h]==null) return null;
+
+        Nodo n = tabela[h];
+        while(n!=null) {
+            if(n.getChave()==chave) return n.getValor();
+            n = n.getProximo();
+        }
         return null;
+
     }
     public void remover(int chave) {
         //IMPLEMENTAR
