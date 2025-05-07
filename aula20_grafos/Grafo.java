@@ -50,6 +50,11 @@ public class Grafo {
     }
     public ArrayList<Integer> adjacentes(int v) {
         //retorna uma lista com os vertices adjacentes ao v
+        ArrayList<Integer> a = new ArrayList<>();
+        for (int w = 0; w < nVertices; w++) {
+            if(matriz[v][w]) a.add(w);
+        }
+        return a;
     }
 
 }

@@ -7,5 +7,7 @@ public class App {
         g.adicionarAresta(0,3);
         g.adicionarAresta(2,3);
         System.out.println(g.gerarDot());
+        System.out.println(g.obterGrau(0));
+        System.out.println(g.adjacentes(0).toString());
     }
 }
