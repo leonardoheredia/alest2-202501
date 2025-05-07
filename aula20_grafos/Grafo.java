@@ -1,5 +1,7 @@
 package aula20_grafos;
 
+import java.util.ArrayList;
+
 public class Grafo {
     private boolean[][] matriz;
     private int nVertices;
@@ -19,7 +21,7 @@ public class Grafo {
         StringBuilder sb = new StringBuilder("graph {");
         sb.append(System.lineSeparator());
         for (int v = 0; v < matriz.length; v++) {
-            for(int w = 0; w < matriz.length; w++) {
+            for(int w = v; w < matriz.length; w++) {
                 if(matriz[v][w]) sb.append(v).append("--").append(w).append(System.lineSeparator());
             }
         }
@@ -29,6 +31,12 @@ public class Grafo {
     }
     public void removerAresta(int v, int w) {
         //implementar
+    }
+    public int obterGrau(int v) {
+        //retorna o grau de um vertice
+    }
+    public ArrayList<Integer> adjacentes(int v) {
+        //retorna uma lista com os vertices adjacentes ao v
     }
 
 }
