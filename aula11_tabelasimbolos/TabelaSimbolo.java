@@ -1,56 +1,41 @@
 package aula11_tabelasimbolos;
 
 public class TabelaSimbolo<Chave, Valor> {
-    class Nodo<Chave, Valor> {
-        Chave chave;
-        Valor valor;
-        Nodo proximo;
-
+    private class Nodo<Chave, Valor> {
+        public Chave chave;
+        public Valor valor;
+        public Nodo proximo;
         public Nodo(Chave chave, Valor valor) {
             this.chave = chave;
             this.valor = valor;
         }
     }
     private Nodo inicio;
-    private int tamanho;
-
     public TabelaSimbolo() {
-        this.tamanho = 0;
+        //nada
     }
     public void atualizar(Chave chave, Valor valor) {
-        //atualizar("IBL-9444", "OPALA")
-        Nodo n = buscarNodo(chave);
-        if(n!=null) {
-            n.valor = valor;
+        Nodo aux = inicio;
+        while(aux!=null) {
+            if(aux.chave.equals(chave)) {
+                aux.valor = valor;
+                return;
+            }
+            aux = aux.proximo;
         }
-        else {
-            n = new Nodo(chave, valor);
-            n.proximo = inicio;
-            inicio = n;
-            tamanho++;
-        }
+        aux = new Nodo(chave, valor);
+        aux.proximo = inicio;
+        inicio = aux;
     }
-    public Valor buscar(Chave chave) {
-        Nodo n = buscarNodo(chave);
-        if(n!=null) return (Valor) n.valor;
-        return null;
-    }
-    private Nodo buscarNodo(Chave chave) {
-        for (Nodo n = inicio; n!=null; n = n.proximo) {
-            if(n.chave.equals(chave)) return n;
-        }
-        return null;
-    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(Nodo n = inicio; n!=null; n = n.proximo) {
-            sb.append(n.chave).append(" ").append(n.valor).append(System.lineSeparator());
+        Nodo aux = inicio;
+        while(aux!=null) {
+            sb.append(aux.chave).append(" - ").append(aux.valor).append(System.lineSeparator());
+            aux = aux.proximo;
         }
         return sb.toString();
     }
-    public boolean contem(Chave chave) {
-        return buscarNodo(chave)!=null;
-    }
 }
-

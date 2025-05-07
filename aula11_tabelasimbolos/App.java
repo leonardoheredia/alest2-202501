@@ -2,13 +2,10 @@ package aula11_tabelasimbolos;
 
 public class App {
     public static void main(String[] args) {
-        TabelaSimbolo<String, String> carros = new TabelaSimbolo<>();
-        carros.atualizar("IBL-9444", "Tempra");
-        carros.atualizar("JDO-0025", "Vectra");
-        carros.atualizar("IZV-4444", "Tracker");
-        System.out.println(carros);
-
-        String c = "IZV-4443";
-        System.out.println(carros.buscar(c));
+        TabelaSimbolo<Integer, String> ts = new TabelaSimbolo<>();
+        ts.atualizar(1, "notebook");
+        ts.atualizar(2,"impressora");
+        ts.atualizar(888, "monitor");
+        System.out.println(ts);
     }
 }
