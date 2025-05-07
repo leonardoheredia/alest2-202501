@@ -13,6 +13,7 @@ public class Grafo {
         nArestas = 0;
     }
     public void adicionarAresta(int v, int w) {
+        if(existeAresta(v,w)) return;
         matriz[v][w] = true;
         matriz[w][v] = true;
         nArestas++;
@@ -29,11 +30,23 @@ public class Grafo {
         sb.append("}");
         return sb.toString();
     }
-    public void removerAresta(int v, int w) {
-        //implementar
+    public boolean existeAresta(int v, int w) {
+        return matriz[v][w];
     }
+    public void removerAresta(int v, int w) {
+        if(existeAresta(v,w)) {
+            matriz[v][w] = false;
+            matriz[w][v] = false;
+            nArestas--;
+        }
+    }
+
     public int obterGrau(int v) {
-        //retorna o grau de um vertice
+        int grau = 0;
+        for (int w = 0; w < nVertices; w++) {
+            if(matriz[v][w]) grau++;
+        }
+        return grau;
     }
     public ArrayList<Integer> adjacentes(int v) {
         //retorna uma lista com os vertices adjacentes ao v
