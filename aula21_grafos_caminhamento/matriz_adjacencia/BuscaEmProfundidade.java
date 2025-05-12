@@ -36,19 +36,23 @@ public class BuscaEmProfundidade {
         //lembrar que a origem esta em uma propriedade da classe
 
         //  anterior[destino]  <- anterior[destino] <- destino
-        Stack<Integer> pilha = new Stack<>();
+        System.out.println();
+        int[] caminho = new int[anteriores.length];
+        for(int i =0; i<caminho.length;i++) caminho[i] = -1;
+        int t = 0;
         while(destino!=origem) {
-            pilha.add(destino);
+            //System.out.print(destino + " ");
+            caminho[t] = destino;
+            t++;
             destino = anteriores[destino];
         }
-        pilha.add(destino);
+        caminho[t] = origem;
 
-        System.out.println();
-        int t = pilha.size();
-        for (int i = 0; i < t; i++) {
-            System.out.print(pilha.pop() + " ");
+        for (int i = caminho.length-1; i >=0 ; i--) {
+            System.out.println(caminho[i]);
         }
-        System.out.println();
+
+
 
     }
 
