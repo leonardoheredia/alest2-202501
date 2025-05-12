@@ -41,6 +41,10 @@ public class Grafo {
         }
     }
 
+    public int getnVertices() {
+        return nVertices;
+    }
+
     public int obterGrau(int v) {
         int grau = 0;
         for (int w = 0; w < nVertices; w++) {
@@ -52,7 +56,7 @@ public class Grafo {
         //retorna uma lista com os vertices adjacentes ao v
         ArrayList<Integer> a = new ArrayList<>();
         for (int w = 0; w < nVertices; w++) {
-            if(matriz[v][w]) a.add(w);
+            if(matriz[v][w]) a.add(Integer.valueOf(w));
         }
         return a;
     }
