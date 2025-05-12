@@ -3,6 +3,7 @@ package aula21_grafos_caminhamento.matriz_adjacencia;
 import aula20_grafos.Grafo;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class BuscaEmProfundidade {
     private Grafo grafo;
@@ -33,6 +34,21 @@ public class BuscaEmProfundidade {
     public void caminhoPara(int destino) {
         //mostrar o caminho do vertice origem para o destino
         //lembrar que a origem esta em uma propriedade da classe
+
+        //  anterior[destino]  <- anterior[destino] <- destino
+        Stack<Integer> pilha = new Stack<>();
+        while(destino!=origem) {
+            pilha.add(destino);
+            destino = anteriores[destino];
+        }
+        pilha.add(destino);
+
+        System.out.println();
+        int t = pilha.size();
+        for (int i = 0; i < t; i++) {
+            System.out.print(pilha.pop() + " ");
+        }
+        System.out.println();
 
     }
 
