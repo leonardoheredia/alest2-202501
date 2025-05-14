@@ -7,15 +7,13 @@ public class App {
         Grafo g = new Grafo(5);
         g.adicionarAresta(0,1);
         g.adicionarAresta(1,2);
-        g.adicionarAresta(2,3);
-        g.adicionarAresta(2,4);
-        g.adicionarAresta(3,4);
+        g.adicionarAresta(1,3);
+        g.adicionarAresta(2, 4);
 
-        BuscaEmProfundidade buscaOrigem4 = new BuscaEmProfundidade(g, 4);
-        buscaOrigem4.mostrarResultado();
+        BuscaEmLargura largura = new BuscaEmLargura(g, 0);
 
-        System.out.println("Caminho do 4 para o 0");
-        buscaOrigem4.caminhoPara(0);
+        largura.mostrarResultados();
+
 
     }
 }
