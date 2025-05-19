@@ -20,5 +20,8 @@ public class App {
         digrafo.adicionarAresta(3,2);
         digrafo.adicionarAresta(4,1);
         System.out.println(digrafo.toDot());
+
+        BuscaEmProfundidade profundidade = new BuscaEmProfundidade(grafo, 0);
+        profundidade.mostrarResultado();
     }
 }
