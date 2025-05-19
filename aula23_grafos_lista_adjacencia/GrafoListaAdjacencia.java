@@ -56,10 +56,15 @@ public class GrafoListaAdjacencia {
     public String toDot() {
         // Gera a representação em formato DOT
         StringBuilder sb = new StringBuilder();
-        sb.append("digraph G {\n");
+        if(direcionado) sb.append("digraph G {\n");
+        else sb.append("graph G {\n");
+
         for (int i = 0; i < numVertices; i++) {
             for (int j : listaAdjacencia[i]) {
-                sb.append(i).append(" -> ").append(j).append(";\n");
+                if(direcionado) sb.append(i).append(" -> ").append(j).append(";\n");
+                else {
+                    if(j>=i) sb.append(i).append(" -- ").append(j).append(";\n");
+                }
             }
         }
         sb.append("}\n");
