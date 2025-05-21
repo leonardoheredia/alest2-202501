@@ -2,6 +2,7 @@ package aula23_grafos_lista_adjacencia;
 
 
 import aula20_grafos.Digrafo;
+import aula24_grafos_ordenacao_topologica.OrdenacaoTopologica;
 
 public class App {
     public static void main(String[] args) {
@@ -23,5 +24,8 @@ public class App {
 
         BuscaEmProfundidade profundidade = new BuscaEmProfundidade(grafo, 0);
         profundidade.mostrarResultado();
+
+        OrdenacaoTopologica ordemTopo = new OrdenacaoTopologica(digrafo);
+        ordemTopo.mostrarResultado();
     }
 }
