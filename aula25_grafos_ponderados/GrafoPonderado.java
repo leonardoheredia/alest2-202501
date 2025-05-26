@@ -23,7 +23,7 @@ public class GrafoPonderado {
     public void imprimir() {
         for (int i = 0; i < numVertices; i++) {
             for(Aresta e:listaAdjacencia[i]) {
-                System.out.println(e);
+                if(e.getV()!=i) System.out.println(e);
             }
         }
     }
