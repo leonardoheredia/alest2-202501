@@ -17,6 +17,8 @@ public class App {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] nomes = linha.split("--");
+                nomes[0] = nomes[0].trim();
+                nomes[1] = nomes[1].trim();
                 int n = verticesNomes.size();
                 if(!verticesNomes.containsValue(nomes[0])) verticesNomes.put(n, nomes[0]);
                 n = verticesNomes.size();
