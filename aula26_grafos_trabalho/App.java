@@ -29,9 +29,27 @@ public class App {
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
+
+        //tamnho do grafo = verticesNomes.size()
+        try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                String[] nomes = linha.split("--");
+                nomes[0] = nomes[0].trim();
+                nomes[1] = nomes[1].trim();
+ //
+            }
+            System.out.println("Arquivo carregado com sucesso!");
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+
         for(Map.Entry<Integer, String> e: verticesNomes.entrySet()) {
             System.out.println(e.getKey() + " - " + e.getValue());
         }
+
+
+
     }
 
 }
