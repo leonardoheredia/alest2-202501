@@ -4,24 +4,33 @@ import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) {
-        HashMap<String, Integer> verticesNomes = new HashMap<>();
-        verticesNomes.put("P", 0);
-        verticesNomes.put("Z", 1);
-        verticesNomes.put("M", 2);
-        verticesNomes.put("K", 3);
-        verticesNomes.put("F", 4);
+        HashMap<Integer, String> verticesNomes = new HashMap<>();
+        verticesNomes.put(0, "A");
+        verticesNomes.put(1, "B");
+        verticesNomes.put(2, "C");
+        verticesNomes.put(3, "D");
 
-        DigrafoPonderado digrafo = new DigrafoPonderado(verticesNomes.size());
-        digrafo.adicionarAresta(verticesNomes.get("P"), verticesNomes.get("Z"), 30);
-        digrafo.adicionarAresta(verticesNomes.get("P"), verticesNomes.get("M"), 200);
-        digrafo.adicionarAresta(verticesNomes.get("Z"), verticesNomes.get("K"), 20);
-        digrafo.adicionarAresta(verticesNomes.get("K"), verticesNomes.get("M"), 60);
-        digrafo.adicionarAresta(verticesNomes.get("K"), verticesNomes.get("F"), 10);
-        digrafo.adicionarAresta(verticesNomes.get("M"), verticesNomes.get("F"), 40);
+        DigrafoPonderado grafo = new DigrafoPonderado(5);
 
-        System.out.println(digrafo.toDot());
+        // Adicionando arestas com pesos
+
+        // Imprimindo o grafo
+        grafo.imprimir();
+
+        // Convertendo para formato DOT
+        String dotRepresentation = grafo.toDot();
+        System.out.println(dotRepresentation);
 
 
-
+        HeapMinimo heap = new HeapMinimo();
+        heap.inserir(10);
+        heap.inserir(5);
+        heap.inserir(3);
+        heap.inserir(8);
+        System.out.println("Heap antes de remover o mínimo:");
+        System.out.println(heap);
+        System.out.println("Removendo mínimo: " + heap.removerMinimo());
+        System.out.println("Heap após remover o mínimo:");
+        System.out.println(heap);
     }
 }
