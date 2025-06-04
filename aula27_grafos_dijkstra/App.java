@@ -9,8 +9,8 @@ public class App {
         grafo.adicionarAresta(0, 2, 3);
         grafo.adicionarAresta(1, 2, 2);
         grafo.adicionarAresta(1, 3, 6);
-        grafo.adicionarAresta(2, 3, 7);
-        grafo.adicionarAresta(2, 4, 4);
+        grafo.adicionarAresta(2, 3, 20);
+        grafo.adicionarAresta(2, 4, 30);
         grafo.adicionarAresta(3, 4, 2);
 
         /*
@@ -33,8 +33,8 @@ public class App {
         String dotRepresentation = grafo.toDot();
         System.out.println(dotRepresentation);
 
-        //Dijkstra dijkstra = new Dijkstra(grafo, 0);
-        //dijkstra.imprimirCaminhos();
+        Dijkstra dijkstra = new Dijkstra(grafo, 0);
+        dijkstra.imprimirCaminhos();
 
     }
 }
