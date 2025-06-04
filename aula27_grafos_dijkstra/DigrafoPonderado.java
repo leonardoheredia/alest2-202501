@@ -3,7 +3,7 @@ package aula27_grafos_dijkstra;
 import java.util.ArrayList;
 
 public class DigrafoPonderado {
-    private class Aresta {
+    protected class Aresta {
         int destino;
         int peso;
 
@@ -55,5 +55,8 @@ public class DigrafoPonderado {
         }
         sb.append("}\n");
         return sb.toString();
+    }
+    public int getNumVertices() {
+        return numVertices;
     }
 }

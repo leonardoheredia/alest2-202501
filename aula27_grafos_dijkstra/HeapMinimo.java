@@ -55,6 +55,9 @@ public class HeapMinimo {
         }
     }
 
+    public boolean estaVazio() {
+        return tamanho == 0;
+    }
 
     @Override
     public String toString() {
